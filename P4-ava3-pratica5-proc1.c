@@ -10,6 +10,7 @@ int indice_maior_valor(){
 int main() {
   int vetores_valores[50],quant_vezes_nove = 0, i;
   int maior_valor = 0;
+  char posicoes_maiorValor[20];
   
   for (i = 0; i < 50; i++) {
     // Armazena no vetor valores aleatórios de 0 a 20
@@ -26,6 +27,12 @@ int main() {
       maior_valor = vetores_valores[i];
   }
  
+    //Armazena as posições em que o maior valor aparece
+    for (i = 0; i < 50; i++) {
+        if (vetores_valores[i] == maior_valor) {
+            posicoes_maiorValor = ""
+        }
+    }
 
   printf("O número 9 apareceu %d vezes\n", quant_vezes_nove);
   printf("O maior valor no vetor é %d", maior_valor);
