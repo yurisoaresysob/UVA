@@ -1,41 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int indice_maior_valor(){
-      for (i = 0; i < 50; i++){
-        if (vetores_valores[i] == maior_valor)
-    
-}
+#include <time.h>
 
 int main() {
-  int vetores_valores[50],quant_vezes_nove = 0, i;
-  int maior_valor = 0;
-  char posicoes_maiorValor[20];
-  
-  for (i = 0; i < 50; i++) {
-    // Armazena no vetor valores aleatórios de 0 a 20
-    vetores_valores[i] = rand() % 20;
+    int vetor[50];
+    int i, soma = 0, quantNove = 0, maiorValor = 0;
 
-    // Conta número de vezes que o 9 aparece
-    if (vetores_valores[i] == 9) {
-      quant_vezes_nove++;
-      continue;
-    }
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
 
-    // Armazena o maior valor
-    if (vetores_valores[i] > maior_valor)
-      maior_valor = vetores_valores[i];
-  }
- 
-    //Armazena as posições em que o maior valor aparece
+    // Preenche o vetor e coleta informações
     for (i = 0; i < 50; i++) {
-        if (vetores_valores[i] == maior_valor) {
-            posicoes_maiorValor = ""
+        // Gera valor entre 0 e 20
+        vetor[i] = rand() % 21;
+        soma += vetor[i];
+
+        if (vetor[i] == 9) {
+            quantNove++;
+        }
+
+        if (vetor[i] > maiorValor) {
+            maiorValor = vetor[i];
         }
     }
 
-  printf("O número 9 apareceu %d vezes\n", quant_vezes_nove);
-  printf("O maior valor no vetor é %d", maior_valor);
-  
-  return 0;
+    // Exibe a soma de todos os valores
+    printf("Soma dos valores do vetor: %d\n", soma);
+
+    // Exibe o número de ocorrências do valor 9
+    printf("Quantidade de vezes que o 9 aparece: %d\n", quantNove);
+
+    // Exibe o maior valor armazenado no vetor
+    printf("Maior valor encontrado no vetor: %d\n", maiorValor);
+
+    // Exibe as posições onde o maior valor aparece
+    printf("Posicoes do maior valor: ");
+    for (i = 0; i < 50; i++) {
+        if (vetor[i] == maiorValor) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+
+    return 0;
 }
